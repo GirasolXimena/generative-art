@@ -24,8 +24,8 @@
 
 	// Use 'portsAttributes' to set default properties for specific forwarded ports. More info: https://code.visualstudio.com/docs/remote/devcontainerjson-reference.
 	"portsAttributes": {
-		"3000": {
-			"label": "Hello Remote World",
+		"9966": {
+			"label": "Canvas-Sketch Server",
 			"onAutoForward": "notify"
 		}
 	},

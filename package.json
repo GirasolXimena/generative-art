@@ -10,5 +10,7 @@
     "test": "jest",
     "build": "tsc"
   },
-  "dependencies": {}
+  "dependencies": {
+    "canvas-sketch": "^0.7.4"
+  }
 }
