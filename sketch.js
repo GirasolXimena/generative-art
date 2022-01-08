@@ -11,14 +11,19 @@ const settings = {
 
 const sketch = () => {
 
-  const palette = random.pick(palettes)
+  const colorCount = random.rangeFloor(1, 6)
+
+  const palette = random.shuffle(
+    random.pick(palettes)
+      .slice(0, Math.max(colorCount, 2))
+  )
   const createGrid = (count) => {
     const points = []
     for (let x = 0; x < count; x++) {
       for (let y = 0; y < count; y++) {
         const u = count <= 1 ? 0.5 : x / (count - 1);
         const v = count <= 1 ? 0.5 : y / (count - 1);
-        console.log(x, y, u, v, count)
+
         points.push({
           color: random.pick(palette),
           radius: Math.abs(random.gaussian() * 0.01),
@@ -32,7 +37,6 @@ const sketch = () => {
   // random.setSeed(420)
   const points = createGrid(40).filter(() => random.value() > 0.5)
   const margin = 400
-  console.log('points', points)
 
   return ({ context, width, height }) => {
     context.fillStyle = 'white'
