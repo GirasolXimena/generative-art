@@ -2,6 +2,7 @@ const canvasSketch = require('canvas-sketch');
 // lerp is Linear intERPolation
 const { lerp } = require('canvas-sketch-util/math')
 const random = require('canvas-sketch-util/random')
+const palettes = require('nice-color-palettes')
 
 const settings = {
   dimensions: [2048, 2048],
@@ -9,6 +10,8 @@ const settings = {
 };
 
 const sketch = () => {
+
+  const palette = random.pick(palettes)
   const createGrid = (count) => {
     const points = []
     for (let x = 0; x < count; x++) {
@@ -17,7 +20,8 @@ const sketch = () => {
         const v = count <= 1 ? 0.5 : y / (count - 1);
         console.log(x, y, u, v, count)
         points.push({
-          radius: Math.abs(random.gaussian() * 0.0025),
+          color: random.pick(palette),
+          radius: Math.abs(random.gaussian() * 0.01),
           position: [u, v]
         })
       }
@@ -34,13 +38,13 @@ const sketch = () => {
     context.fillStyle = 'white'
     context.fillRect(0, 0, width, height)
 
-    points.forEach(({ position: [u, v], radius }) => {
+    points.forEach(({ position: [u, v], radius, color }) => {
       const x = lerp(margin, width - margin, u)
       const y = lerp(margin, height - margin, v)
 
       context.beginPath()
       context.arc(x, y, radius * width, 0, Math.PI * 2)
-      context.fillStyle = 'black'
+      context.fillStyle = color
       context.lineWidth = 10
       context.fill()
 
