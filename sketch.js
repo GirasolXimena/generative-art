@@ -1,6 +1,7 @@
 const canvasSketch = require('canvas-sketch');
 // lerp is Linear intERPolation
 const { lerp } = require('canvas-sketch-util/math')
+const random = require('canvas-sketch-util/random')
 
 const settings = {
   dimensions: [2048, 2048],
@@ -21,7 +22,8 @@ const sketch = () => {
     return points
   }
 
-  const points = createGrid(40).filter(() => Math.random() > 0.5)
+  random.setSeed(420)
+  const points = createGrid(40).filter(() => random.value() > 0.5)
   const margin = 400
   console.log('points', points)
 
