@@ -21,7 +21,7 @@ const sketch = () => {
     return points
   }
 
-  const points = createGrid(5)
+  const points = createGrid(40).filter(() => Math.random() > 0.5)
   const margin = 400
   console.log('points', points)
 
@@ -34,9 +34,9 @@ const sketch = () => {
       const y = lerp(margin, height - margin, v)
 
       context.beginPath()
-      context.arc(x, y, 100, 0, Math.PI * 2)
+      context.arc(x, y, 5, 0, Math.PI * 2)
       context.strokeStyle = 'black'
-      context.lineWidth = 40
+      context.lineWidth = 20
       context.stroke()
 
     })
