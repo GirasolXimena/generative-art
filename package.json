@@ -6,9 +6,7 @@
   "main": "server.js",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "test": "jest",
-    "build": "tsc"
+    "start": "canvas-sketch src/sketch.js --output=media/"
   },
   "dependencies": {
     "canvas-sketch": "^0.7.4",
