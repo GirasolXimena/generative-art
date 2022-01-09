@@ -11,11 +11,14 @@
 	},
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": {},
+	"settings": {
+		"editor.bracketPairColorization.enabled": true,
+		"editor.guides.bracketPairs": "active"
+	},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"coenraads.bracket-pair-colorizer"
+		"sleistner.vscode-fileutils"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
