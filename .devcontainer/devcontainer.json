@@ -19,7 +19,9 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"sleistner.vscode-fileutils",
-		"analytic-signal.preview-mp4"
+		"analytic-signal.preview-mp4",
+		"slevesque.shader",
+		"bierner.comment-tagged-templates"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
